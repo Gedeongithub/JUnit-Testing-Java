@@ -19,6 +19,7 @@ public class BankAccountRepeatedTestTests {
     public void testDepositRepetitionInfo(BankAccount bankAccount, RepetitionInfo repetitionInfo){
         bankAccount.deposit(500);
         assertEquals(500,bankAccount.getBalance());
+        System.out.println(bankAccount.getBalance());
         System.out.println("Nr: "+repetitionInfo.getCurrentRepetition());
     }
 }
