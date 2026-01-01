@@ -76,15 +76,18 @@ public class BankAccountNestedTests {
     class WhenBalanceEqualsZero{
 
         @Test
+        @DisplayName("Withdraw minimum balance: Exception")
         public void testWithdrawMinimumBalanceIs0(){
             BankAccount bankAccount = new BankAccount(0,0);
             assertThrows(RuntimeException.class,()->bankAccount.withdraw(500));
         }
 
         @Test
+        @DisplayName("Withdrawing and getting negative balance")
         public void testWithdrawMinimumBalanceNegative1000(){
             BankAccount bankAccount = new BankAccount(0,-1000);
-            assertEquals(-500,bankAccount.withdraw(500));
+            bankAccount.withdraw(500);
+            assertEquals(-500,bankAccount.getBalance());
         }
     }
 }
