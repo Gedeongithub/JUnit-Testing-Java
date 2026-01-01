@@ -33,6 +33,16 @@ public class BankAccountPermetirizedTestTest {
     }
 
     @ParameterizedTest
+    @CsvFileSource(resources = "customer.csv")
+    public void testDepositAndNameFromCsvFile(double amount, String name, BankAccount bankAccount){
+        bankAccount.deposit(amount);
+        bankAccount.setHolderName(name);
+        assertEquals(amount,bankAccount.getBalance());
+        assertEquals(name,bankAccount.getHolderName());
+
+    }
+
+    @ParameterizedTest
     @EnumSource(value = DayOfWeek.class,names = {"TUESDAY","THURSDAY"})
     public void testDayOfWeek(DayOfWeek day){
         assertTrue(day.toString().startsWith("T"));
