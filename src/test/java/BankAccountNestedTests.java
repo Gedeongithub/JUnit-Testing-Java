@@ -72,7 +72,7 @@ public class BankAccountNestedTests {
         assertTimeout(Duration.ofNanos(1),()->bankAccount.deposit(500));
     }
 
-
+    @Nested
     class WhenBalanceEqualsZero{
 
         @Test
